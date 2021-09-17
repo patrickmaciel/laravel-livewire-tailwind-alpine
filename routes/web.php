@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\Pages\Exemplos;
+use App\Http\Livewire\Pages\Todo;
+use App\Http\Livewire\Pages\TodoModal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/exemplos', Exemplos::class);
+Route::get('/todo', Todo::class)->name('todo');
+Route::get('/todo-modal', TodoModal::class)->name('todo-modal');
