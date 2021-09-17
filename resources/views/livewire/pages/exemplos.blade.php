@@ -19,9 +19,9 @@
                 Form na Modal + Tabela paginada + Notificações utilizando Alpine.js.
             </x-grid.action-link>
 
-            <x-grid.action-link titulo='CRUD + Modal' :rota="route('todo-modal')">
-                <x-slot name='icon'>🛠</x-slot>
-                Form na Modal + Tabela paginada.
+            <x-grid.action-link titulo='CRUD + Notify Alpine Inline' :rota="route('todo-alpine-inline')">
+                <x-slot name='icon'>✒</x-slot>
+                Form na Modal + Tabela paginada + Notificações Inline utilizando Alpine.js.
             </x-grid.action-link>
 
           </div>
