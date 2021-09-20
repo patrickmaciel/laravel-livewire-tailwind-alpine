@@ -14,6 +14,11 @@ class TodoAlpineInline extends Component
     public $description = '';
     public $buscaTabela = null;
 
+    public $sortField = 'id';
+    public $sortAsc = false;
+
+    protected $queryString = ['sortField', 'sortAsc'];
+
     public $rules = [
         'title' => 'required|min:3',
         'description' => 'nullable|min:3',
@@ -44,15 +49,29 @@ class TodoAlpineInline extends Component
         $this->emitSelf('notify-saved');
     }
 
+    public function sortBy($field)
+    {
+        $this->sortField = $field;
+        if ($this->sortField === $field) {
+            $this->sortAsc = !$this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
+    }
+
+    public function isSortable($field)
+    {
+        return $this->sortField === $field ? $this->sortAsc : true;
+    }
+
     public function render()
     {
         return view('livewire.pages.todo-alpine-inline', [
-            'todos' => ModelsTodo::orderBy('id', 'desc')
-                ->where(function ($query) {
-                    if (!empty($this->buscaTabela)) {
-                        $query->where('title', 'like', "%{$this->buscaTabela}%");
-                    }
-                })
+            'todos' => ModelsTodo::where(function ($query) {
+                if (!empty($this->buscaTabela)) {
+                    $query->where('title', 'like', "%{$this->buscaTabela}%");
+                }
+            })->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate(5)
         ])->layout('layouts.admin');
     }

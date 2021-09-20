@@ -156,13 +156,18 @@
         <table class="min-w-full">
             <thead>
                 <tr class="border-t border-gray-200">
-                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    <span class="lg:pl-2">Todos as tarefas</span>
-                    </th>
+                    <x-table.th wire:click="sortBy('id')" :asc="$this->isSortable('id')" >
+                       ID
+                    </x-table.th>
 
-                    <th class="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Last updated
-                    </th>
+                    <x-table.th wire:click="sortBy('title')" :asc="$this->isSortable('title')" >
+                        Título
+                     </x-table.th>
+
+                     <x-table.th wire:click="sortBy('updated_at')" :asc="$this->isSortable('updated_at')" text='right'>
+                        Atualizada em
+                     </x-table.th>
+
                     <th class="pr-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                 </tr>
             </thead>
@@ -170,21 +175,26 @@
             <tbody class="bg-white divide-y divide-gray-100">
             @foreach($todos as $todo)
                 <tr>
+                    <td class="md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500">
+                        {{ $todo->id }}
+                    </td>
+
                     <td class="px-6 py-3 max-w-0 w-full whitespace-nowrap text-sm font-medium text-gray-900">
-                    <div class="flex items-center space-x-3 lg:pl-2">
-                        <div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" aria-hidden="true"></div>
-                        <a href="#" class="truncate hover:text-gray-600">
-                        <span>
-                            {{ $todo->title }}
-                            <span class="text-gray-500 font-normal">{{ $todo->description }}</span>
-                        </span>
-                        </a>
-                    </div>
+                        <div class="flex items-center space-x-3 lg:pl-2">
+                            <div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" aria-hidden="true"></div>
+                            <a href="#" class="truncate hover:text-gray-600">
+                            <span>
+                                {{ $todo->title }}
+                                <span class="text-gray-500 font-normal">{{ $todo->description }}</span>
+                            </span>
+                            </a>
+                        </div>
                     </td>
 
                     <td class="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-right">
                         {{ $todo->updated_at->format('d/m/Y') }}
                     </td>
+
                     <td class="pr-6">
                     <div x-data="{ isOpen: false }" class="relative flex justify-end items-center">
                         <button x-on:click='isOpen = !isOpen' type="button" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" id="project-options-menu-0-button" aria-expanded="false" aria-haspopup="true">
@@ -248,7 +258,7 @@
 
             <tfoot>
                 <tr>
-                    <td colspan="5">
+                    <td colspan="6">
                         <div class="py-3 px-6">
                             {{ $todos->onEachSide(1)->links() }}
                         </div>
