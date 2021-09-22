@@ -70,9 +70,9 @@
                 <div class="mt-5 flex-1 h-0 overflow-y-auto">
                     <nav class="px-2">
                         <div class="space-y-1">
-                            <!-- Current: "bg-lime-100 text-gray-900", Default: "text-gray-600 hover:text-gray-900 hover:bg-gray-50" -->
+                            <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:text-gray-900 hover:bg-gray-50" -->
                             <a href="/"
-                                class="bg-lime-100 text-gray-900 group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md"
+                                class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md"
                                 aria-current="page">
                                 <!--
                       Heroicon name: outline/home
@@ -153,7 +153,7 @@
 
         <!-- Static sidebar for desktop -->
         <div class="hidden lg:flex lg:flex-shrink-0">
-            <div class="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-lime-400">
+            <div class="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-gray-100">
                 <div class="flex items-center flex-shrink-0 px-6">
                     <img class="h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg"
@@ -170,7 +170,7 @@
                     <div class="px-3 mt-6 relative inline-block text-left">
                         <div>
                             <button x-on:click="toggleDropdown()" type="button"
-                                class="group w-full bg-gray-800 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500"
+                                class="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500"
                                 id="options-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="flex w-full justify-between items-center">
                                     <span class="flex min-w-0 items-center justify-between space-x-3">
@@ -178,9 +178,9 @@
                                             src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
                                             alt="">
                                         <span class="flex-1 flex flex-col min-w-0">
-                                            <span class="text-white text-sm font-medium truncate">Jessy
+                                            <span class="text-gray-900 text-sm font-medium truncate">Jessy
                                                 Schwarz</span>
-                                            <span class="text-gray-500 text-sm truncate">@jessyschwarz</span>
+                                            <span class="text-gray-400 text-sm truncate">@jessyschwarz</span>
                                         </span>
                                     </span>
                                     <!-- Heroicon name: solid/selector -->
@@ -204,7 +204,7 @@
                             class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="options-menu-button" tabindex="-1">
                             <div class="py-1" role="none">
-                                <!-- Active: "bg-lime-100 text-gray-900", Not Active: "text-gray-700" -->
+                                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                 <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                                     id="options-menu-item-0">View profile</a>
                                 <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
@@ -248,7 +248,7 @@
                         <div class="space-y-1">
                             <!-- Current: "bg-gray-200 text-gray-900", Default: "text-gray-700 hover:text-gray-900 hover:bg-gray-50" -->
                             <a href="/"
-                                class="bg-gray-800 text-gray-100 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                                class="bg-gray-200 text-gray-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                                 aria-current="page">
                                 <!--
                       Heroicon name: outline/home
